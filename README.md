@@ -26,7 +26,7 @@ I bridge ops and development — from racking and cabling critical infrastructur
 | **[ge-carbone](https://github.com/Kevzi/ge-carbone)** | High-performance data pipeline transforming French accounting data (FEC). |
 | **[lodestar](https://github.com/Kevzi/lodestar)** | Systematic multi-asset trend-following engine — causal backtest, risk management, live execution via broker API, VPS deployment. |
 | **[DeepMana](https://github.com/Kevzi/DeepMana)** | AI Hearthstone bot with a real-time overlay (computer vision + automation). |
-| **MEVLab** | On-chain MEV measurement toolkit — Base L2, Uniswap V3 math, price-impact simulation. *(publishing soon)* |
+| **[MEVLab](https://github.com/Kevzi/MEVLab)** | On-chain MEV measurement toolkit — Base L2, Uniswap V3 math, price-impact simulation. Read-only, measure-before-execute. |
 
 ### Background
 
