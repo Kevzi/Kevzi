@@ -4,7 +4,7 @@
 4 years on critical data centers — Linux, networking, incident response under strict SLAs — plus hands-on automation and deployment (Python/Bash, `systemd`, VPS). I bridge ops and code. My rule: *measure before you bet.*
 
 🏗️  Data Center Technician @ **BP2I / BNP Paribas**
-🎯  Targeting **DevOps / SRE / Cloud** roles · 📚 learning Docker, cloud (Azure/AWS), CI/CD, Terraform
+🎯  Targeting **DevOps / SRE / Cloud** roles · 📚 preparing **AWS** certification (Cloud Practitioner → Solutions Architect) · learning Docker, CI/CD, Terraform
 📍  Paris area, France · open to **remote**
 📧  conankevin.g@gmail.com · 🔗 [LinkedIn](https://www.linkedin.com/in/keconan/)
 
@@ -19,7 +19,7 @@
 ### Tech
 
 **Infra & DevOps** — `Linux (Debian/Ubuntu)` · `Bash` · `Python` · `PowerShell` · `systemd` · `automation` · `networking (Cisco, DNS, VPN)` · `CMDB` · `ServiceNow / ITSM` · `incident / SLA` · `Git`
-**Learning** — `Docker` · `CI/CD (GitHub Actions)` · `Azure / AWS` · `Terraform` · `Ansible` · `Kubernetes`
+**Learning** — `AWS` · `Docker` · `CI/CD (GitHub Actions)` · `Terraform` · `Ansible` · `Kubernetes`
 **Dev & data** — `SQL / MySQL` · `Django` · `React` · `REST API` · `pandas`
 **Also** — `LightGBM` · `Reinforcement Learning (PPO)` · `web3.py / EVM` · security (`RootMe`, `TryHackMe`)
 
