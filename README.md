@@ -1,9 +1,10 @@
 # Kevin CONAN
 
-**Data center & infrastructure engineer who codes.**
-I bridge ops and development — from racking and cabling critical infrastructure to shipping my own systems in production. My rule: *measure before you bet.*
+**Infrastructure engineer moving into DevOps / SRE.**
+4 years on critical data centers — Linux, networking, incident response under strict SLAs — plus hands-on automation and deployment (Python/Bash, `systemd`, VPS). I bridge ops and code. My rule: *measure before you bet.*
 
 🏗️  Data Center Technician @ **BP2I / BNP Paribas**
+🎯  Targeting **DevOps / SRE / Cloud** roles · 📚 learning Docker, cloud (Azure/AWS), CI/CD, Terraform
 📍  Paris area, France · open to **remote**
 📧  conankevin.g@gmail.com · 🔗 [LinkedIn](https://www.linkedin.com/in/keconan/)
 
@@ -17,7 +18,10 @@ I bridge ops and development — from racking and cabling critical infrastructur
 
 ### Tech
 
-`Python` · `Bash` · `PowerShell` · `Linux (Debian/Ubuntu/Kali)` · `systemd` · `networking (Cisco, DNS, VPN)` · `SQL / MySQL` · `ServiceNow / ITSM` · `web3.py / EVM` · `LightGBM` · `Reinforcement Learning (PPO)` · `Git`
+**Infra & DevOps** — `Linux (Debian/Ubuntu)` · `Bash` · `Python` · `PowerShell` · `systemd` · `automation` · `networking (Cisco, DNS, VPN)` · `CMDB` · `ServiceNow / ITSM` · `incident / SLA` · `Git`
+**Learning** — `Docker` · `CI/CD (GitHub Actions)` · `Azure / AWS` · `Terraform` · `Ansible` · `Kubernetes`
+**Dev & data** — `SQL / MySQL` · `Django` · `React` · `REST API` · `pandas`
+**Also** — `LightGBM` · `Reinforcement Learning (PPO)` · `web3.py / EVM` · security (`RootMe`, `TryHackMe`)
 
 ### Featured projects
 
