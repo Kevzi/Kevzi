@@ -5,7 +5,7 @@ I bridge ops and development — from racking and cabling critical infrastructur
 
 🏗️  Data Center Technician @ **BP2I / BNP Paribas**
 📍  Paris area, France · open to **remote**
-📧  conankevin.g@gmail.com
+📧  conankevin.g@gmail.com · 🔗 [LinkedIn](https://www.linkedin.com/in/keconan/)
 
 ---
 
