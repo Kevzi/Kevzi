@@ -1,0 +1,380 @@
+<style>
+  :root {
+    --ground: #F5F6F8;
+    --surface: #FFFFFF;
+    --ink: #171B22;
+    --muted: #59616E;
+    --faint: #828A96;
+    --line: #E3E6EA;
+    --line-strong: #D2D7DE;
+    --accent: #A65E00;
+    --accent-soft: #F3E7D2;
+    --pos: #1F7A46;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", "Menlo", "Consolas", monospace;
+    --maxw: 1060px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #0D1117;
+      --surface: #151A21;
+      --ink: #E7EDF4;
+      --muted: #9AA6B4;
+      --faint: #6E7A88;
+      --line: #232B35;
+      --line-strong: #2E3742;
+      --accent: #F0A93C;
+      --accent-soft: #241B0F;
+      --pos: #4FB37A;
+    }
+  }
+  :root[data-theme="light"] {
+    --ground: #F5F6F8; --surface: #FFFFFF; --ink: #171B22; --muted: #59616E;
+    --faint: #828A96; --line: #E3E6EA; --line-strong: #D2D7DE; --accent: #A65E00;
+    --accent-soft: #F3E7D2; --pos: #1F7A46;
+  }
+  :root[data-theme="dark"] {
+    --ground: #0D1117; --surface: #151A21; --ink: #E7EDF4; --muted: #9AA6B4;
+    --faint: #6E7A88; --line: #232B35; --line-strong: #2E3742; --accent: #F0A93C;
+    --accent-soft: #241B0F; --pos: #4FB37A;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--faint);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .eyebrow::before {
+    content: ""; width: 7px; height: 7px; background: var(--accent);
+    display: inline-block; transform: rotate(45deg);
+  }
+
+  /* ---- Masthead ---- */
+  header.masthead { border-bottom: 1px solid var(--line); }
+  .masthead-inner { padding: 68px 0 52px; display: flex; flex-direction: column; gap: 22px; }
+  .handle { font-family: var(--mono); font-size: 13px; color: var(--muted); letter-spacing: 0.04em; }
+  h1 {
+    font-size: clamp(2.6rem, 7vw, 4.1rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    margin: 0;
+    text-wrap: balance;
+  }
+  h1 .rule { color: var(--accent); }
+  .role {
+    font-family: var(--mono); font-size: 14px; letter-spacing: 0.02em;
+    color: var(--muted); text-transform: uppercase;
+  }
+  .lede {
+    font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+    line-height: 1.5;
+    max-width: 34ch;
+    margin: 4px 0 0;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .lede b { color: var(--accent); font-weight: 700; }
+  .contact { display: flex; flex-wrap: wrap; gap: 10px 22px; font-family: var(--mono); font-size: 13.5px; margin-top: 6px; }
+  .contact span { color: var(--faint); }
+  .contact .ph { color: var(--accent); border-bottom: 1px dashed currentColor; }
+
+  /* ---- Facts strip ---- */
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); }
+  .fact { padding: 26px 28px; border-left: 1px solid var(--line); }
+  .fact:first-child { border-left: 0; padding-left: 0; }
+  .fact .n { font-family: var(--mono); font-size: 1.5rem; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+  .fact .l { font-size: 13.5px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+
+  /* ---- Sections ---- */
+  section { padding: 58px 0; border-bottom: 1px solid var(--line); }
+  .sec-head { margin-bottom: 30px; }
+  h2 { font-size: 1.05rem; font-weight: 700; margin: 12px 0 0; letter-spacing: -0.01em; }
+  .prose { max-width: 62ch; color: var(--muted); font-size: 1.05rem; }
+  .prose b { color: var(--ink); font-weight: 650; }
+  .prose .hl { color: var(--accent); font-weight: 600; }
+
+  /* ---- Skills ---- */
+  .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .skill { background: var(--surface); padding: 22px 24px; }
+  .skill h3 { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--faint); margin: 0 0 14px; font-weight: 600; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    font-family: var(--mono); font-size: 12.5px; color: var(--ink);
+    background: var(--ground); border: 1px solid var(--line-strong);
+    padding: 4px 9px; border-radius: 3px; white-space: nowrap;
+  }
+  .skill.learning .tag { border-style: dashed; color: var(--muted); }
+
+  /* ---- Projects ---- */
+  .projects { display: flex; flex-direction: column; gap: 20px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 6px; padding: 30px 32px;
+    transition: border-color .18s ease, transform .18s ease;
+  }
+  .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .spec { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); display: flex; flex-wrap: wrap; gap: 6px 14px; margin-bottom: 16px; }
+  .spec .sep { color: var(--accent); }
+  .card h3 { font-size: 1.6rem; margin: 0; letter-spacing: -0.02em; font-weight: 750; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  .card .tagline { font-size: 1.02rem; color: var(--accent); font-weight: 550; margin: 7px 0 16px; }
+  .card p { margin: 0; color: var(--muted); max-width: 66ch; font-size: 1.02rem; }
+  .card .repo { display: inline-block; font-family: var(--mono); font-size: 12px; color: var(--accent); margin-bottom: 16px; }
+  .demo { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+  .demo .lab { font-family: var(--mono); font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--faint); display: block; margin-bottom: 6px; }
+  .demo p { color: var(--ink); font-size: 0.98rem; }
+  .demo p b { color: var(--accent); font-weight: 650; }
+
+  /* ---- Parcours ---- */
+  .xp { display: flex; flex-direction: column; }
+  .xp-row { display: grid; grid-template-columns: 160px 1fr; gap: 22px; padding: 17px 0; border-top: 1px solid var(--line); }
+  .xp-row:first-child { border-top: 0; padding-top: 0; }
+  .xp .when { font-family: var(--mono); font-size: 12.5px; color: var(--faint); padding-top: 2px; line-height: 1.5; }
+  .xp .what h4 { margin: 0; font-size: 1.05rem; font-weight: 650; letter-spacing: -0.01em; }
+  .xp .what .org { color: var(--accent); font-weight: 600; }
+  .xp .what p { margin: 5px 0 0; color: var(--muted); font-size: 0.97rem; max-width: 60ch; }
+  .badge { font-family: var(--mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--pos); border: 1px solid var(--pos); padding: 1px 6px; border-radius: 3px; }
+  @media (max-width: 720px) { .xp-row { grid-template-columns: 1fr; gap: 5px; } }
+
+  /* ---- Ethos / CTA ---- */
+  .ethos { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .ethos .big { font-size: clamp(1.5rem, 3.4vw, 2.1rem); line-height: 1.2; font-weight: 750; letter-spacing: -0.02em; text-wrap: balance; margin: 0; }
+  .ethos .big em { color: var(--accent); font-style: normal; }
+  .cta-links { display: flex; flex-direction: column; gap: 12px; font-family: var(--mono); font-size: 14px; margin-top: 20px; }
+  .cta-links a, .cta-links .ph { display: inline-flex; gap: 10px; }
+  .cta-links .k { color: var(--faint); min-width: 92px; }
+
+  footer { padding: 30px 0 46px; }
+  footer .fnote { font-family: var(--mono); font-size: 12px; color: var(--faint); }
+
+  @media (max-width: 720px) {
+    body { font-size: 16px; }
+    .facts { grid-template-columns: 1fr; }
+    .fact { border-left: 0; border-top: 1px solid var(--line); padding-left: 0 !important; }
+    .fact:first-child { border-top: 0; }
+    .skills { grid-template-columns: 1fr; }
+    .ethos { grid-template-columns: 1fr; gap: 24px; }
+    .card { padding: 24px 22px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .card { transition: none; }
+    .card:hover { transform: none; }
+  }
+</style>
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <div class="handle">@kevzi · Villeneuve-le-Roi (94) · remote</div>
+    <h1>Kevin<span class="rule">.</span></h1>
+    <div class="role">Infrastructure critique &amp; DevOps — Linux, automatisation, déploiement, fiabilité</div>
+    <p class="lede">Je construis des systèmes de trading et des outils on-chain, du signal à la production. Et <b>je mesure avant de parier.</b></p>
+    <div class="contact">
+      <span>Contact —</span>
+      <a href="mailto:conankevin.g@gmail.com">conankevin.g@gmail.com</a>
+      <a href="https://www.root-me.org/Kevzi">RootMe</a>
+      <a href="https://tryhackme.com/p/KevCo">TryHackMe</a>
+      <a href="https://github.com/Kevzi">GitHub</a>
+      <a href="https://www.linkedin.com/in/keconan/">LinkedIn</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="facts">
+    <div class="fact">
+      <div class="n">5+</div>
+      <div class="l">projets construits — SaaS full-stack, trading systématique, outils on-chain, IA</div>
+    </div>
+    <div class="fact">
+      <div class="n">Signal → Prod</div>
+      <div class="l">chaîne complète : données, modèle, risque, déploiement VPS</div>
+    </div>
+    <div class="fact">
+      <div class="n">On-chain</div>
+      <div class="l">EVM, web3.py, maths d'AMM, MEV — chaque hypothèse vérifiée</div>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-head">
+      <div class="eyebrow">Profil</div>
+      <h2>Ce que je fais</h2>
+    </div>
+    <p class="prose">Technicien data center le jour, je code et je déploie mes propres systèmes le reste du temps. Quatre ans sur des <b>infrastructures critiques</b> (BNP Paribas, Allianz, TotalEnergies) — Linux, réseau, gestion d'incidents sous SLA — doublés d'une pratique concrète de l'<b>automatisation et du déploiement</b> (scripts Python/Bash, services systemd, mise en production sur VPS). Je vise le <span class="hl">DevOps / SRE</span> : le point exact où mon expérience infra rencontre le code. Ma marque de fabrique : la rigueur — j'automatise, je fiabilise, et je mesure avant de parier.</p>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="eyebrow">Parcours</div>
+      <h2>Quatre ans en infrastructure critique — et un diplôme informatique</h2>
+    </div>
+    <div class="xp">
+      <div class="xp-row">
+        <div class="when">Depuis 2025 · <span class="badge">en poste</span></div>
+        <div class="what"><h4>Technicien Data Center — <span class="org">BP2I / BNP Paribas</span></h4><p>Infrastructures critiques : brassage &amp; DCIM, staging et migrations, résolution d'incidents hardware/réseau sous SLA stricts, traçabilité ITSM.</p></div>
+      </div>
+      <div class="xp-row">
+        <div class="when">2022 – 2025</div>
+        <div class="what"><h4>Coordinateur de projet / Technicien DC — <span class="org">Allianz</span></h4><p>~5 projets d'intégration par semaine, 98 % First-Time-Right. +500 équipements déployés (Oracle, Lenovo, IBM, Fortinet), capacity planning, standardisation des procédures d'exploitation.</p></div>
+      </div>
+      <div class="xp-row">
+        <div class="when">2021 – 2022</div>
+        <div class="what"><h4>Technicien Data Center — <span class="org">TotalEnergies</span></h4><p>Exploitation datacenter, installation &amp; configuration d'équipements, ITSM, déménagement de salles serveurs en continuité de service.</p></div>
+      </div>
+      <div class="xp-row">
+        <div class="when">2018 – 2021</div>
+        <div class="what"><h4>Opérateur cartographe — <span class="org">Armée de Terre</span></h4><p>Automatisation de traitements géospatiaux en Python, gestion de bases SQL, supports décisionnels en gestion de crise sous délais stricts. (28ᵉ groupe géographique)</p></div>
+      </div>
+      <div class="xp-row">
+        <div class="when">2015 – 2017 · <span class="badge">diplôme</span></div>
+        <div class="what"><h4>BTS SIO — Services Informatiques aux Organisations</h4><p>F2I Vincennes. Diplôme d'État en informatique (bac+2).</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="eyebrow">Compétences</div>
+      <h2>La boîte à outils</h2>
+    </div>
+    <div class="skills">
+      <div class="skill">
+        <h3>Infrastructure &amp; DevOps</h3>
+        <div class="tags">
+          <span class="tag">Linux (Debian/Ubuntu)</span><span class="tag">Bash</span><span class="tag">Python</span><span class="tag">PowerShell</span>
+          <span class="tag">systemd</span><span class="tag">automatisation</span><span class="tag">réseau (Cisco, DNS, VPN)</span>
+          <span class="tag">CMDB</span><span class="tag">ITSM / ServiceNow</span><span class="tag">incident / SLA</span><span class="tag">déploiement VPS</span><span class="tag">Git</span>
+        </div>
+      </div>
+      <div class="skill learning">
+        <h3>Cloud, conteneurs &amp; CI/CD — certif AWS en préparation</h3>
+        <div class="tags">
+          <span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">CI/CD (GitHub Actions)</span>
+          <span class="tag">Terraform</span><span class="tag">Ansible</span><span class="tag">Kubernetes</span>
+        </div>
+      </div>
+      <div class="skill">
+        <h3>Développement &amp; données</h3>
+        <div class="tags">
+          <span class="tag">Python (pandas, numpy)</span><span class="tag">SQL / MySQL</span><span class="tag">Django</span><span class="tag">React</span><span class="tag">REST API</span>
+        </div>
+      </div>
+      <div class="skill">
+        <h3>Sécurité · ML · Langues</h3>
+        <div class="tags">
+          <span class="tag">pentest (RootMe, TryHackMe)</span><span class="tag">Kali</span><span class="tag">LightGBM</span><span class="tag">RL (PPO)</span><span class="tag">web3 / EVM</span>
+          <span class="tag">FR natif</span><span class="tag">EN technique</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="eyebrow">Réalisations</div>
+      <h2>Projets — full-stack, quant &amp; on-chain</h2>
+    </div>
+    <div class="projects">
+
+      <article class="card">
+        <div class="spec">DJANGO <span class="sep">·</span> REACT <span class="sep">·</span> POSTGRESQL <span class="sep">·</span> REST API <span class="sep">·</span> MULTI-TENANT</div>
+        <h3>ge-carbone — LedgerCarbon</h3>
+        <div class="tagline">SaaS de comptabilité carbone pour cabinets d'expertise comptable.</div>
+        <a class="repo" href="https://github.com/Kevzi/ge-carbone">github.com/Kevzi/ge-carbone ↗</a>
+        <p>Application full-stack multi-tenant qui transforme la comptabilité classique en comptabilité carbone : ingestion et normalisation des Fichiers d'Écritures Comptables (FEC), catégorisation des achats, conversion en équivalent CO₂ (Scope 1, 2, 3) via la base Empreinte de l'ADEME. Backend Django (API REST, isolation des données par schéma tenant), frontend React, PostgreSQL.</p>
+        <div class="demo">
+          <span class="lab">Ce que ça démontre</span>
+          <p>Ingénierie <b>full-stack</b> et conception de base de données : API REST, architecture <b>multi-tenant</b> (isolation des données par cabinet), sur un produit réel pour un marché réglementé (ESG / bilan carbone).</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="spec">PYTHON <span class="sep">·</span> PANDAS <span class="sep">·</span> CTRADER OPENAPI <span class="sep">·</span> VPS / SYSTEMD</div>
+        <h3>Lodestar</h3>
+        <div class="tagline">Moteur de trend-following multi-actifs — du signal à la production.</div>
+        <a class="repo" href="https://github.com/Kevzi/lodestar">github.com/Kevzi/lodestar ↗</a>
+        <p>Système systématique complet : signal de momentum (TSMOM), vol-targeting, construction de portefeuille (class-parity / HRP), backtest causal sans look-ahead et estimation de probabilité de passage par Monte-Carlo. Exécution live via cTrader OpenAPI avec garde-fou dry-run et gestion du hedging, circuit breaker de risque, et déploiement en production sur VPS (recorder de données, trading, dashboard — services systemd).</p>
+        <div class="demo">
+          <span class="lab">Ce que ça démontre</span>
+          <p><b>Mise en production &amp; exploitation</b> : déploiement sur VPS via services systemd, run quotidien automatisé, monitoring (dashboard temps réel), circuit breaker de risque. Plus la rigueur : coût de portage ajouté au backtest, mesuré plutôt qu'ignoré.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="spec">PYTHON <span class="sep">·</span> LIGHTGBM <span class="sep">·</span> PPO / STABLE-BASELINES3 <span class="sep">·</span> FREQTRADE</div>
+        <h3>ApexQuant</h3>
+        <div class="tagline">Trading ML × RL — alpha LightGBM, exécution par renforcement.</div>
+        <p>Architecture à deux étages : un pipeline d'alpha en LightGBM et un agent d'exécution par apprentissage par renforcement (PPO, Stable-Baselines3), bâti sur Freqtrade / FreqAI. Backtesting complet et garde-fous prop-firm.</p>
+        <div class="demo">
+          <span class="lab">Ce que ça démontre</span>
+          <p>ML et RL appliqués à un domaine réel — et validation out-of-sample rigoureuse qui a <b>honnêtement conclu à l'absence d'edge</b> (expectancy négative mesurée sur des centaines de trades), au lieu de se raconter une histoire.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="spec">PYTHON <span class="sep">·</span> WEB3.PY <span class="sep">·</span> EVM / BASE <span class="sep">·</span> UNISWAP V3</div>
+        <h3>MEVLab</h3>
+        <div class="tagline">Toolkit de mesure &amp; simulation MEV on-chain.</div>
+        <a class="repo" href="https://github.com/Kevzi/MEVLab">github.com/Kevzi/MEVLab ↗</a>
+        <p>Suite d'outils read-only pour mesurer l'edge d'arbitrage cross-DEX sur Base <em>avant</em> de risquer un centime : lecture de spreads (maths de liquidité concentrée Uni V3 + AMM Aerodrome), vérification de chaque adresse on-chain, monitor de capturabilité same-block, et simulateur de price-impact qui distingue une vraie opportunité d'un mirage (mur des frais, pools fins).</p>
+        <div class="demo">
+          <span class="lab">Ce que ça démontre</span>
+          <p>Ingénierie on-chain / DeFi, maths d'AMM, et <b>discipline de mesure</b> : prouver la faisabilité avec des données réelles avant d'exécuter.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="spec">PYTHON <span class="sep">·</span> IA / APPRENTISSAGE <span class="sep">·</span> EN COURS</div>
+        <h3>DeepFold <span class="badge" style="color:var(--faint);border-color:var(--line-strong)">en cours</span></h3>
+        <div class="tagline">IA de décision pour le poker en ligne.</div>
+        <p>Projet en cours d'exploration : agent de décision pour le poker en ligne (théorie des jeux, apprentissage automatique). Repo privé — code disponible sur demande.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="ethos">
+      <div>
+        <div class="eyebrow">Méthode</div>
+        <p class="big">Je ne vends pas de promesse. Je construis, je mesure, et je dis la vérité sur <em>ce que disent les données</em>.</p>
+      </div>
+      <div>
+        <p class="prose" style="margin-bottom:0">Disponible pour du <b>freelance</b> et des postes <b>remote</b> — quant, data, ingénierie crypto. Si vous cherchez quelqu'un qui livre des systèmes réels et qui ne se ment pas sur les résultats, parlons-en.</p>
+        <div class="cta-links">
+          <a href="mailto:conankevin.g@gmail.com"><span class="k">Email</span> conankevin.g@gmail.com</a>
+          <a href="https://www.root-me.org/Kevzi"><span class="k">RootMe</span> root-me.org/Kevzi</a>
+          <a href="https://tryhackme.com/p/KevCo"><span class="k">TryHackMe</span> tryhackme.com/p/KevCo</a>
+          <a href="https://github.com/Kevzi"><span class="k">GitHub</span> github.com/Kevzi</a>
+          <a href="https://www.linkedin.com/in/keconan/"><span class="k">LinkedIn</span> linkedin.com/in/keconan</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fnote">Construit sans template — remplace les champs [entre crochets] par tes liens.</div>
+  </footer>
+</div>
